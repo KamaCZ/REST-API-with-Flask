@@ -1,0 +1,11 @@
+
+black==22.12.0
+Flask-JWT-Extended
+Flask-Smorest
+Flask-SQLAlchemy
+passlib
+marshmallow
+python-dotenv
+gunicorn
+flask-jwt-extended
+passlib
