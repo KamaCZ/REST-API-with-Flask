@@ -3,9 +3,8 @@ black==22.12.0
 Flask-JWT-Extended
 Flask-Smorest
 Flask-SQLAlchemy
+Flask-Migrate
 passlib
 marshmallow
 python-dotenv
 gunicorn
-flask-jwt-extended
-passlib

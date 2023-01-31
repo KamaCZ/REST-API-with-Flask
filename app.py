@@ -4,6 +4,7 @@ import os
 from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 import secrets
+from flask_migrate import Migrate
 
 from db import db
 from blocklist import BLOCKLIST
@@ -57,6 +58,12 @@ def create_app(db_url=None):
                 {"description": "The token has been revoked.", "error": "token_rewoked"}
             ),
             401,
+        )
+
+    @jwt.needs_fresh_token_loader
+    def token_not_fesh_callback(jwt_header, jwt_payload):
+        return jsonify(
+            {"description": "The token is not fresh", "error": "fresh_token_required"}
         )
 
     @jwt.additional_claims_loader

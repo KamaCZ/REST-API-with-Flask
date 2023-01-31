@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.11
 # port we gonna run the flask app on
 EXPOSE 5000
 # going to the folder within our docker image, where we can 
