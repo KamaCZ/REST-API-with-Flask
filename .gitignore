@@ -2,3 +2,5 @@
 .vscode
 help.py
 help1.py
+__pycache__
+.DS_Store
