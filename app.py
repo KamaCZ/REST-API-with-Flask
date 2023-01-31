@@ -38,6 +38,7 @@ def create_app(db_url=None):
     )
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
+    migrate = Migrate(app, db)
 
     # connecting flask-smorest to the flask app
     api = Api(app)
@@ -101,8 +102,11 @@ def create_app(db_url=None):
             401,
         )
 
-    @app.before_first_request
-    def create_tables():
+    # @app.before_first_request
+    # def create_tables():
+    #     db.create_all()
+
+    with app.app_context():
         db.create_all()
 
     # registering blueprints
