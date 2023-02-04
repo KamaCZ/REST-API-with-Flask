@@ -5,6 +5,7 @@ from flask_smorest import Api
 from flask_jwt_extended import JWTManager
 import secrets
 from flask_migrate import Migrate
+from dotenv import load_dotenv
 
 from db import db
 from blocklist import BLOCKLIST
@@ -19,6 +20,7 @@ from resources.user import blp as UserBlueprint
 
 def create_app(db_url=None):
     app = Flask(__name__)
+    load_dotenv()
 
     # Flask Config
     # so that we can see exceptions from flask and propagate it here
